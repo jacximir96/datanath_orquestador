@@ -1,0 +1,6 @@
+@orchestrator_HostAddress = http://localhost:5199
+
+GET {{orchestrator_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
