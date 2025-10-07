@@ -23,8 +23,6 @@ namespace infrastructure.Adapters
                 var claims = new List<Claim>{
                         new Claim(ClaimTypes.Name, username),
                         new Claim(ClaimTypes.Role, "Administrator")
-                        //new Claim(ClaimTypes., username),
-                        //new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                            };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ResourceInfra.secretKey));

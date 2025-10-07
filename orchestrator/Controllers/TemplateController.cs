@@ -45,14 +45,15 @@ namespace orchestrator.Controllers
             {
                 SetErrors(validationTarget?.Errors);
                 SetErrors(validationTemplate?.Errors);
-                return Ok(GetResponse("La plantilla contiene campos vacios", false, this.errors));
+                return Ok(GetTemplateResponse("La plantilla contiene campos vacios", false, this.errors));
             }
                 
             var response=await _template.ReceiveTemplate(template);
             return Ok(response);
         }
 
-        public GenericResponse GetResponse(string message, bool isSuccess, List<string> errors)
+   
+        private GenericResponse GetTemplateResponse(string message, bool isSuccess, List<string> errors)
         {
             GenericResponse response = new GenericResponse();
             if (isSuccess)
