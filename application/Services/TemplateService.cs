@@ -42,7 +42,7 @@ namespace application.Services
             string syncId=string.Empty;
             try
             {
-                _template.GenerateLog(Resources.MessageFinishValidation);               
+                _template.GenerateLog(ResourcesApp.MessageFinishValidation);               
                 response=await _templateDomain.SendDataManager(template);
                 if (!response.Error) 
                 {

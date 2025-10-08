@@ -31,7 +31,7 @@ namespace application.Services
                 var _user =_userRepository.GetUser(user, password).Result;
                 if (_user != null) 
                 {
-                    decryptedPassword = _encryptAdapter.Decrypt(_user.Password, Resources.GeneralKeyToEncrypt);
+                    decryptedPassword = _encryptAdapter.Decrypt(_user.Password, ResourcesApp.GeneralKeyToEncrypt);
                     if (_user.Name == user && password == decryptedPassword) 
                     {
                         token = _tokenAdapter.GenerateToken(user);

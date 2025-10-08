@@ -22,7 +22,7 @@ namespace application.Services
             string decrypted=string.Empty;
             try
             {
-                decrypted = _encryptAdapter.Decrypt(text, Resources.GeneralKeyToEncrypt);
+                decrypted = _encryptAdapter.Decrypt(text, ResourcesApp.GeneralKeyToEncrypt);
             }
             catch (Exception e)
             {
@@ -36,7 +36,7 @@ namespace application.Services
             string encrypted=string.Empty;  
             try
             {
-                encrypted=_encryptAdapter.Encrypt(text, Resources.GeneralKeyToEncrypt);
+                encrypted=_encryptAdapter.Encrypt(text, ResourcesApp.GeneralKeyToEncrypt);
             }
             catch (Exception e)
             {

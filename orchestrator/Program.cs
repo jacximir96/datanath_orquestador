@@ -17,10 +17,7 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File("logs/serilog-file.txt", rollingInterval: RollingInterval.Day) // Log to file, daily roll
     .CreateLogger();
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => {
     options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title="Orchestrator", Version="v1" });
