@@ -144,6 +144,9 @@
   <data name="MessageFieldTransformationKey" xml:space="preserve">
     <value>El campo transformationKey no puede estar vacio</value>
   </data>
+  <data name="MessageFinishValidation" xml:space="preserve">
+    <value>plantilla validada con exito</value>
+  </data>
   <data name="MessageTemplateGeneral" xml:space="preserve">
     <value>Se encontaron campos vacios en la plantilla</value>
   </data>

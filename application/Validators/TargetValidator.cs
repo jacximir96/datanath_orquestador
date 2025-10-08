@@ -12,11 +12,11 @@ namespace application.Validators
     {
         public TargetValidator()
         {
-            RuleFor(t=> t.entities).NotNull().NotEmpty().WithMessage(Resources.MessageFieldTargetEntities);
+            RuleFor(t=> t.entities).NotNull().NotEmpty().WithMessage(ResourcesApp.MessageFieldTargetEntities);
             RuleForEach(t=> t.entities).ChildRules(cr => {
-                cr.RuleFor(i => i.name).NotEmpty().NotNull().WithErrorCode(Resources.MessageFieldEntityName);
+                cr.RuleFor(i => i.name).NotEmpty().NotNull().WithErrorCode(ResourcesApp.MessageFieldEntityName);
             });
-            RuleFor(t => t.entityTarget).NotNull().NotEmpty().WithMessage(Resources.MessageFieldEntityTarget);
+            RuleFor(t => t.entityTarget).NotNull().NotEmpty().WithMessage(ResourcesApp.MessageFieldEntityTarget);
         }
 
     }

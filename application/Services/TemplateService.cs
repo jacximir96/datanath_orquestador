@@ -42,7 +42,7 @@ namespace application.Services
             string syncId=string.Empty;
             try
             {
-                _template.GenerateLog($"se validó con exito la plantilla con exito");               
+                _template.GenerateLog(Resources.MessageFinishValidation);               
                 response=await _templateDomain.SendDataManager(template);
                 if (!response.Error) 
                 {
@@ -54,7 +54,7 @@ namespace application.Services
             }
             catch(Exception e) 
             {
-                response = GetResponse("Bad Request", false);
+                response = GetResponse(e.Message, false);
             }
             return await Task.FromResult(response);
         }

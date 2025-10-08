@@ -45,8 +45,8 @@ namespace infrastructure.Adapters
             try
             {
                 using var aes = Aes.Create();
-                aes.Key = Encoding.UTF8.GetBytes(key.PadRight(32).Substring(0, 32)); // AES-256 requires 32 bytes
-                aes.IV = new byte[16]; // Initialization vector (IV) - for simplicity, we use zeros. Use a random IV in production!
+                aes.Key = Encoding.UTF8.GetBytes(key.PadRight(32).Substring(0, 32));
+                aes.IV = new byte[16];
 
                 using var encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
                 using (ms = new MemoryStream()) 

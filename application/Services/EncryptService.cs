@@ -40,7 +40,7 @@ namespace application.Services
             }
             catch (Exception e)
             {
-
+                e.Message.ToString();
             }
             return encrypted;
         }

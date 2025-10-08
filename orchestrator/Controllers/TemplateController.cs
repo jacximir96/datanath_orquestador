@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using System.Net;
+using System.Resources;
 using System.Runtime.Versioning;
 
 namespace orchestrator.Controllers
@@ -21,16 +22,19 @@ namespace orchestrator.Controllers
         private readonly IValidator<Template> _validatorTemplate;
         private readonly IValidator<Target> _validatiorTarget;       
         private List<string> errors;
+        private readonly IConfiguration _configuration;
 
         public TemplateController(ITemplate template, 
             IValidator<Template> validatorTemplate, 
-            IValidator<Target> validatiorTarget
+            IValidator<Target> validatiorTarget,
+            IConfiguration configuration
             ) 
         {          
             _template = template;
             _validatorTemplate = validatorTemplate;
             _validatiorTarget = validatiorTarget;
             this.errors= new List<string>();
+            _configuration= configuration;  
         }
 
         [Authorize]
@@ -45,7 +49,9 @@ namespace orchestrator.Controllers
             {
                 SetErrors(validationTarget?.Errors);
                 SetErrors(validationTemplate?.Errors);
-                return Ok(GetTemplateResponse("La plantilla contiene campos vacios", false, this.errors));
+                //Este mensaje no se deja poner en el archivo de recursos
+
+                return Ok(GetTemplateResponse(_configuration.GetSection("generalmessagefields").Value, false, this.errors));
             }
                 
             var response=await _template.ReceiveTemplate(template);

@@ -9,7 +9,6 @@ namespace domain.Interfaces
 {
     public interface INatsManagement
     {
-        Task SendMessage(Template template);
-    
+        Task SendMessage(Template template);    
     }
 }

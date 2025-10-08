@@ -9,7 +9,6 @@ namespace domain.Interfaces
 {
     public interface ITemplateDomain
     {
-        Task<GenericResponse> SendDataManager(Template template);              
-     
+        Task<GenericResponse> SendDataManager(Template template);                  
     }
 }

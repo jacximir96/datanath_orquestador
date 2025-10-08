@@ -12,15 +12,15 @@ namespace application.Validators
     {
         public TemplateValidator() 
         {
-            RuleFor(t=> t.entities).NotNull().WithMessage(Resources.MessageFieldEntities);
+            RuleFor(t=> t.entities).NotNull().WithMessage(ResourcesApp.MessageFieldEntities);
             RuleForEach(t => t.entities).ChildRules(cr =>
             {
-                cr.RuleFor(i => i.name).NotEmpty().NotNull().WithMessage(Resources.MessageFieldEntityName);
+                cr.RuleFor(i => i.name).NotEmpty().NotNull().WithMessage(ResourcesApp.MessageFieldEntityName);
             });
 
-            RuleFor(t=> t.Client).NotNull().NotEmpty().WithMessage(Resources.MessaFieldTemplateClient);
-            RuleFor(t => t.origins).NotNull().NotEmpty().WithMessage(Resources.MessageFieldTemplateOrigin);
-            RuleFor(t => t.transformationKey).NotNull().NotEmpty().WithMessage(Resources.MessageFieldTransformationKey);
+            RuleFor(t=> t.Client).NotNull().NotEmpty().WithMessage(ResourcesApp.MessaFieldTemplateClient);
+            RuleFor(t => t.origins).NotNull().NotEmpty().WithMessage(ResourcesApp.MessageFieldTemplateOrigin);
+            RuleFor(t => t.transformationKey).NotNull().NotEmpty().WithMessage(ResourcesApp.MessageFieldTransformationKey);
         }
        
     }

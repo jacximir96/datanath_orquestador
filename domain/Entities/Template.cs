@@ -20,8 +20,5 @@ namespace domain.Entities
         public Target? target { get; set; }
         public string? estado { get; set; }
       
-
-
-
     }
 }
