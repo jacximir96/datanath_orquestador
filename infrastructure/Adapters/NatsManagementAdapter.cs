@@ -2,12 +2,7 @@
 using domain.Interfaces;
 using Microsoft.Extensions.Configuration;
 using NATS.Client.Core;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace infrastructure.Adapters
 {
@@ -26,7 +21,7 @@ namespace infrastructure.Adapters
             {
                 var opts = new NatsOpts { Url = _config.GetSection("natsurl").Value };
                 var nats = new NatsConnection(opts);                
-               await nats.PublishAsync(_config.GetSection("subject").Value, template.id);
+                await nats.PublishAsync(_config.GetSection("subject").Value, template.id);
             }
             catch (Exception e) 
             {
